@@ -1,0 +1,81 @@
+/* ================================================
+   _variables.css
+   Глобальні CSS-змінні (дизайн-токени) проєкту.
+   Підключається ПЕРШИМ у styles.css через @import.
+   ================================================ */
+
+:root {
+  /* ── Кольори ── */
+  --color-white:          #ffffff;
+  --color-black:          #111111;
+  --color-text:           #333333;
+  --color-text-light:     #888888;
+  --color-text-muted:     #aaaaaa;
+
+  --color-bg:             #ffffff;
+  --color-bg-light:       #f7f7f7;
+  --color-bg-hero:        #e8e4de;
+  --color-bg-stats:       #1a1a1a;       /* темний фон блоку статистики */
+  --color-bg-newsletter:  #c9b87a;       /* золотистий фон newsletter */
+  --color-bg-footer:      #ffffff;
+
+  --color-accent:         #b5a06a;       /* золотисто-пісочний */
+  --color-accent-dark:    #9a8855;
+  --color-accent-light:   #d1c286;       /* для іконок */
+
+  --color-border:         #e5e5e5;
+  --color-overlay:        rgba(0, 0, 0, 0.20);
+
+  /* ── Типографіка ── */
+  --font-primary:   'Raleway', sans-serif;
+  --font-secondary: 'Open Sans', sans-serif;
+
+  --font-size-base:   16px;
+  --font-size-sm:     13px;
+  --font-size-xs:     11px;
+  --font-size-lg:     20px;
+  --font-size-xl:     28px;
+  --font-size-2xl:    36px;
+  --font-size-hero:   52px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium:  500;
+  --font-weight-bold:    700;
+  --font-weight-black:   900;
+
+  --letter-spacing-wide:   0.10em;
+  --letter-spacing-wider:  0.20em;
+  --letter-spacing-widest: 0.35em;
+
+  /* ── Відступи (сітка 8px) ── */
+  --space-xs:   4px;
+  --space-sm:   8px;
+  --space-md:   16px;
+  --space-lg:   24px;
+  --space-xl:   40px;
+  --space-2xl:  64px;
+  --space-3xl:  96px;
+
+  /* ── Контейнер ── */
+  --container-max: 1200px;
+  --container-pad: var(--space-md);
+
+  /* ── Header ── */
+  --header-height-mobile:  60px;
+  --header-height-desktop: 80px;
+
+  /* ── Бургер ── */
+  --burger-bar-color:  var(--color-black);
+  --burger-bar-width:  26px;
+  --burger-bar-height: 3px;
+  --burger-bar-gap:    5px;
+
+  /* ── Анімації ── */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.4s ease;
+
+  /* ── Z-index ── */
+  --z-header:  100;
+  --z-nav:      90;
+}
