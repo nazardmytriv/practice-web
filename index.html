@@ -1,30 +1,479 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-<title>Web Practice</title>
-<link rel="stylesheet"
-href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SHOP. — інтернет-магазин меблів та декору." />
+  <title>SHOP.</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;900&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="assets/css/_variables.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-<header>
-<h1>Мій вебпроєкт</h1>
+
+<!-- =============================================
+     HEADER
+     ============================================= -->
+<header class="header" id="header">
+  <div class="header__inner container">
+
+    <a href="index.html" class="header__logo" aria-label="SHOP. — головна сторінка">
+      SHOP<span>.</span>
+    </a>
+
+    <!-- Навігація: мобільна — dropdown; десктоп — горизонтальна -->
+    <nav class="nav" id="main-nav" aria-label="Головна навігація">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="#" class="nav__link is-active">Shop</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">About</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Services</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Дії: пошук + кошик (видимі на десктопі) -->
+    <div class="header__actions" aria-label="Дії">
+      <a href="#" class="header__action" aria-label="Пошук">
+        <img src="assets/images/icons/user.svg" alt="" />
+      </a>
+      <a href="#" class="header__action" aria-label="Кошик">
+        <img src="assets/images/icons/cart.svg" alt="" />
+      </a>
+    </div>
+
+    <!-- Бургер: видимий на мобільних, прихований на десктопі -->
+    <button
+      class="burger"
+      type="button"
+      id="burger-btn"
+      aria-controls="main-nav"
+      aria-expanded="false"
+      aria-label="Відкрити меню"
+    >
+      <span class="burger__bar"></span>
+      <span class="burger__bar"></span>
+      <span class="burger__bar"></span>
+    </button>
+
+  </div>
 </header>
-<main>
-<section>
-<h2>Головна секція</h2>
-<p>
-Це перша сторінка навчального вебпроєкту.
-</p>
-</section>
+<!-- /HEADER -->
+
+
+<!-- =============================================
+     MAIN
+     ============================================= -->
+<main id="main-content">
+
+
+  <!-- HERO SECTION -->
+  <section class="hero" aria-label="Головний банер">
+    <div class="hero__content container">
+
+      <!-- Навігація по слайдах над заголовком -->
+      <nav class="hero__meta" aria-label="Слайди">
+        <span class="hero__meta-item">Intro</span>
+        <span class="hero__meta-item hero__meta-item--active">Alato Cabinet</span>
+        <span class="hero__meta-item">The Chair</span>
+        <span class="hero__meta-item">Halú Rocin Chair</span>
+      </nav>
+
+      <h1 class="hero__title">Alato Cabinet</h1>
+
+      <p class="hero__subtitle">
+        Far far away, behind the word mountains, far from the countries
+        Vokalia and Consonantia, there live the blind texts. Separated they live
+        in Bookmarksgrove.
+      </p>
+
+      <a href="#" class="hero__btn">Purchase Now</a>
+
+    </div>
+  </section>
+  <!-- /HERO SECTION -->
+
+
+  <!-- FEATURES SECTION -->
+  <section class="features" aria-label="Наші переваги">
+    <div class="container">
+      <div class="features__grid">
+
+        <!-- Credit Card -->
+        <article class="feature-item">
+          <img
+            class="feature-item__icon"
+            src="assets/images/icons/credit-card.svg"
+            alt=""
+            aria-hidden="true"
+          />
+          <h3 class="feature-item__title">Credit Card</h3>
+          <p class="feature-item__text">
+            Far far away, behind the word mountains, far from the countries
+            Vokalia and Consonantia, there live the blind texts. Separated they
+            live in Bookmarksgrove
+          </p>
+          <a href="#" class="feature-item__link">Learn More</a>
+        </article>
+
+        <!-- Save Money -->
+        <article class="feature-item">
+          <img
+            class="feature-item__icon"
+            src="assets/images/icons/wallet.svg"
+            alt=""
+            aria-hidden="true"
+          />
+          <h3 class="feature-item__title">Save Money</h3>
+          <p class="feature-item__text">
+            Far far away, behind the word mountains, far from the countries
+            Vokalia and Consonantia, there live the blind texts. Separated they
+            live in Bookmarksgrove
+          </p>
+          <a href="#" class="feature-item__link">Learn More</a>
+        </article>
+
+        <!-- Free Delivery -->
+        <article class="feature-item">
+          <img
+            class="feature-item__icon"
+            src="assets/images/icons/window-market.svg"
+            alt=""
+            aria-hidden="true"
+          />
+          <h3 class="feature-item__title">Free Delivery</h3>
+          <p class="feature-item__text">
+            Far far away, behind the word mountains, far from the countries
+            Vokalia and Consonantia, there live the blind texts. Separated they
+            live in Bookmarksgrove
+          </p>
+          <a href="#" class="feature-item__link">Learn More</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+  <!-- /FEATURES SECTION -->
+
+
+  <!-- PRODUCTS SECTION -->
+  <section class="products" aria-label="Товари">
+    <div class="container">
+
+      <header class="products__header">
+        <span class="section-eyebrow">Cool Stuff</span>
+        <h2 class="section-title">Products<span>.</span></h2>
+        <p class="products__desc">
+          Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus
+          alias autem provident. Odit ab aliquam dolor eius.
+        </p>
+      </header>
+
+      <div class="products__grid">
+
+        <!-- Картка 1: Hauteville Concrete Rocking Chair (з бейджем Sale) -->
+        <article class="product-card">
+          <div class="product-card__image-wrapper">
+            <img
+              class="product-card__image"
+              src="assets/images/rocking-chair.png"
+              alt="Hauteville Concrete Rocking Chair"
+            />
+            <img
+              class="product-card__badge"
+              src="assets/images/icons/sale.svg"
+              alt="Sale"
+            />
+          </div>
+          <h3 class="product-card__title">Hauteville Concrete Rocking Chair</h3>
+          <p class="product-card__price">$350</p>
+        </article>
+
+        <!-- Картка 2: Pavilion Speaker -->
+        <article class="product-card">
+          <div class="product-card__image-wrapper">
+            <img
+              class="product-card__image"
+              src="assets/images/pavilion-speaker.png"
+              alt="Pavilion Speaker"
+            />
+          </div>
+          <h3 class="product-card__title">Pavilion Speaker</h3>
+          <p class="product-card__price">$600</p>
+        </article>
+
+        <!-- Картка 3: Ligomancer -->
+        <article class="product-card">
+          <div class="product-card__image-wrapper">
+            <img
+              class="product-card__image"
+              src="assets/images/ligomancer.png"
+              alt="Ligomancer"
+            />
+          </div>
+          <h3 class="product-card__title">Ligomancer</h3>
+          <p class="product-card__price">$780</p>
+        </article>
+
+        <!-- Картка 4: Alato Cabinet -->
+        <article class="product-card">
+          <div class="product-card__image-wrapper">
+            <img
+              class="product-card__image"
+              src="assets/images/alato-cabinet.jpg"
+              alt="Alato Cabinet"
+            />
+          </div>
+          <h3 class="product-card__title">Alato Cabinet</h3>
+          <p class="product-card__price">$800</p>
+        </article>
+
+        <!-- Картка 5: Earing Wireless -->
+        <article class="product-card">
+          <div class="product-card__image-wrapper">
+            <img
+              class="product-card__image"
+              src="assets/images/earing-wireless.png"
+              alt="Earing Wireless"
+            />
+          </div>
+          <h3 class="product-card__title">Earing Wireless</h3>
+          <p class="product-card__price">$100</p>
+        </article>
+
+        <!-- Картка 6: Sculptural Coffee Table -->
+        <article class="product-card">
+          <div class="product-card__image-wrapper">
+            <img
+              class="product-card__image"
+              src="assets/images/sculptural-coffee-table.png"
+              alt="Sculptural Coffee Table"
+            />
+          </div>
+          <h3 class="product-card__title">Sculptural Coffee Table</h3>
+          <p class="product-card__price">$960</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+  <!-- /PRODUCTS SECTION -->
+
+
+  <!-- TESTIMONIALS SECTION -->
+  <section class="testimonials" aria-label="Відгуки клієнтів">
+    <div class="container">
+
+      <header class="testimonials__header">
+        <span class="section-eyebrow">Testimony</span>
+        <h2 class="section-title">Happy Clients</h2>
+      </header>
+
+      <div class="testimonials__body">
+        <img
+          class="testimonial__avatar"
+          src="assets/images/user.png"
+          alt="Jean Doe"
+        />
+        <p class="testimonial__author">Jean Doe, via Twitter</p>
+        <blockquote class="testimonial__text">
+          Far far away, behind the word mountains, far from the countries
+          Vokalia and Consonantia, there live the blind texts. Separated they
+          live in Bookmarksgrove right at the coast of the Semantics, a large
+          language ocean.
+        </blockquote>
+
+        <!-- Dots navigation -->
+        <div class="testimonial__dots" aria-hidden="true">
+          <span class="testimonial__dot testimonial__dot--active"></span>
+          <span class="testimonial__dot"></span>
+          <span class="testimonial__dot"></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- /TESTIMONIALS SECTION -->
+
+
+  <!-- STATS SECTION -->
+  <section class="stats" aria-label="Статистика">
+    <div class="stats__inner container">
+
+      <div class="stats-item">
+        <img
+          class="stats-item__icon"
+          src="assets/images/icons/eye.svg"
+          alt=""
+          aria-hidden="true"
+        />
+        <span class="stats-item__number">5297</span>
+        <span class="stats-item__label">Creativity Fuel</span>
+      </div>
+
+      <div class="stats-item">
+        <img
+          class="stats-item__icon"
+          src="assets/images/icons/yellow-cart.svg"
+          alt=""
+          aria-hidden="true"
+        />
+        <span class="stats-item__number">108</span>
+        <span class="stats-item__label">Happy Clients</span>
+      </div>
+
+      <div class="stats-item">
+        <img
+          class="stats-item__icon"
+          src="assets/images/icons/window-market.svg"
+          alt=""
+          aria-hidden="true"
+        />
+        <span class="stats-item__number">168</span>
+        <span class="stats-item__label">All Products</span>
+      </div>
+
+      <div class="stats-item">
+        <img
+          class="stats-item__icon"
+          src="assets/images/icons/oclock.svg"
+          alt=""
+          aria-hidden="true"
+        />
+        <span class="stats-item__number">1345</span>
+        <span class="stats-item__label">Hours Spent</span>
+      </div>
+
+    </div>
+  </section>
+  <!-- /STATS SECTION -->
+
+
+  <!-- NEWSLETTER SECTION -->
+  <section class="newsletter" aria-label="Підписка на розсилку">
+    <div class="container">
+
+      <span class="newsletter__eyebrow">Newsletter</span>
+      <h2 class="newsletter__title">Newsletter</h2>
+      <p class="newsletter__subtitle">
+        Just stay tune for our latest Product. Now you can subscribe
+      </p>
+
+      <form
+        class="newsletter__form"
+        action="#"
+        method="POST"
+        onsubmit="event.preventDefault();"
+      >
+        <input
+          type="email"
+          class="newsletter__input"
+          placeholder="Email"
+          required
+          aria-label="Ваш email"
+        />
+        <button type="submit" class="newsletter__btn">Subscribe</button>
+      </form>
+
+    </div>
+  </section>
+  <!-- /NEWSLETTER SECTION -->
+
+
 </main>
-<footer>
-<p>
-© 2026 Навчальна практика
-</p>
+<!-- /MAIN -->
+
+
+<!-- =============================================
+     FOOTER
+     ============================================= -->
+<footer class="footer">
+  <div class="container">
+
+    <div class="footer__top">
+
+      <!-- Бренд + опис -->
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo">SHOP<span>.</span></a>
+        <p class="footer__brand-text">
+          Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia
+          reprehenderit. Eos cumque dicta adipisci architecto culpa amet.
+        </p>
+      </div>
+
+      <!-- Колонка 1 -->
+      <nav class="footer__nav-group" aria-label="Компанія">
+        <h3 class="footer__nav-title">Компанія</h3>
+        <ul class="footer__nav-list">
+          <li><a href="#" class="footer__nav-link">About</a></li>
+          <li><a href="#" class="footer__nav-link">Help</a></li>
+          <li><a href="#" class="footer__nav-link">Contact</a></li>
+          <li><a href="#" class="footer__nav-link">Terms</a></li>
+          <li><a href="#" class="footer__nav-link">Meetups</a></li>
+        </ul>
+      </nav>
+
+      <!-- Колонка 2 -->
+      <nav class="footer__nav-group" aria-label="Магазин">
+        <h3 class="footer__nav-title">Магазин</h3>
+        <ul class="footer__nav-list">
+          <li><a href="#" class="footer__nav-link">Shop</a></li>
+          <li><a href="#" class="footer__nav-link">Privacy</a></li>
+          <li><a href="#" class="footer__nav-link">Testimonials</a></li>
+          <li><a href="#" class="footer__nav-link">Handbook</a></li>
+          <li><a href="#" class="footer__nav-link">Held Desk</a></li>
+        </ul>
+      </nav>
+
+      <!-- Колонка 3 -->
+      <nav class="footer__nav-group" aria-label="Для розробників">
+        <h3 class="footer__nav-title">Для розробників</h3>
+        <ul class="footer__nav-list">
+          <li><a href="#" class="footer__nav-link">Find Designers</a></li>
+          <li><a href="#" class="footer__nav-link">Find Developers</a></li>
+          <li><a href="#" class="footer__nav-link">Teams</a></li>
+          <li><a href="#" class="footer__nav-link">Advertise</a></li>
+          <li><a href="#" class="footer__nav-link">API</a></li>
+        </ul>
+      </nav>
+
+    </div>
+    <!-- /footer__top -->
+
+    <div class="footer__bottom">
+
+      <p class="footer__copy">&copy; 2018 Free HTML5. All Rights Reserved.</p>
+
+      <!-- Соціальні мережі -->
+      <div class="footer__social">
+        <a href="#" class="footer__social-link" aria-label="Twitter">
+          <img src="assets/images/icons/twiter.svg" alt="" />
+        </a>
+        <a href="#" class="footer__social-link" aria-label="Facebook">
+          <img src="assets/images/icons/facebook.svg" alt="" />
+        </a>
+        <a href="#" class="footer__social-link" aria-label="LinkedIn">
+          <img src="assets/images/icons/LinkedIn.svg" alt="" />
+        </a>
+        <a href="#" class="footer__social-link" aria-label="Dribbble">
+          <img src="assets/images/icons/Dribbble.svg" alt="" />
+        </a>
+      </div>
+
+    </div>
+    <!-- /footer__bottom -->
+
+  </div>
 </footer>
-<script src="assets/js/main.js"></script>
+<!-- /FOOTER -->
+
+
+<script src="assets/js/script.js" defer></script>
 </body>
 </html>
