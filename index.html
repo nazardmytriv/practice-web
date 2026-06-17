@@ -25,7 +25,7 @@
   <div class="header__inner container">
 
     <a href="index.html" class="header__logo" aria-label="SHOP. — головна сторінка">
-      SHOP<span>.</span>
+      SHOP.
     </a>
 
     <!-- Навігація: мобільна — dropdown; десктоп — горизонтальна -->
@@ -40,12 +40,16 @@
 
     <!-- Дії: пошук + кошик (видимі на десктопі) -->
     <div class="header__actions" aria-label="Дії">
-      <a href="#" class="header__action" aria-label="Пошук">
-        <img src="assets/images/icons/user.svg" alt="" />
-      </a>
-      <a href="#" class="header__action" aria-label="Кошик">
-        <img src="assets/images/icons/cart.svg" alt="" />
-      </a>
+      <div class="header__search">
+        <input type="text" class="header__search-input" placeholder="Search.." aria-label="Пошук" />
+        <a href="#" class="header__action header__action--search" aria-label="Пошук">
+          <img src="assets/images/icons/magnifier.svg" alt="" />
+        </a>
+      </div>
+      <div class="header__cart-wrapper">
+        <img src="assets/images/icons/cart.svg" alt="Кошик" class="header__cart-icon" />
+        <img src="assets/images/icons/user.svg" alt="Профіль" class="header__user-icon" />
+      </div>
     </div>
 
     <!-- Бургер: видимий на мобільних, прихований на десктопі -->
@@ -63,6 +67,23 @@
     </button>
 
   </div>
+
+  <!-- Пошук + кошик окремим рядком на весь екран (<1025px) — на десктопі вже є в header__actions -->
+  <div class="header__mobile-search">
+    <input
+      type="text"
+      class="header__mobile-search-input"
+      placeholder="Search.."
+      aria-label="Пошук"
+    />
+    <img src="assets/images/icons/magnifier.svg" alt="" class="header__mobile-search-icon" />
+
+    <div class="header__cart-wrapper">
+      <img src="assets/images/icons/cart.svg" alt="Кошик" class="header__cart-icon" />
+      <img src="assets/images/icons/user.svg" alt="Профіль" class="header__user-icon" />
+    </div>
+  </div>
+
 </header>
 <!-- /HEADER -->
 
@@ -75,28 +96,21 @@
 
   <!-- HERO SECTION -->
   <section class="hero" aria-label="Головний банер">
-    <div class="hero__content container">
+  <div class="hero__inner container">
 
-      <!-- Навігація по слайдах над заголовком -->
-      <nav class="hero__meta" aria-label="Слайди">
-        <span class="hero__meta-item">Intro</span>
-        <span class="hero__meta-item hero__meta-item--active">Alato Cabinet</span>
-        <span class="hero__meta-item">The Chair</span>
-        <span class="hero__meta-item">Halú Rocin Chair</span>
-      </nav>
-
-      <h1 class="hero__title">Alato Cabinet</h1>
-
+    <div class="hero__content">
+      <p class="hero__price">$800</p>
+      <h1 class="hero__title">ALATO CABINET</h1>
       <p class="hero__subtitle">
         Far far away, behind the word mountains, far from the countries
         Vokalia and Consonantia, there live the blind texts. Separated they live
         in Bookmarksgrove.
       </p>
-
       <a href="#" class="hero__btn">Purchase Now</a>
-
     </div>
-  </section>
+
+  </div>
+</section>
   <!-- /HERO SECTION -->
 
 
@@ -143,7 +157,7 @@
         <article class="feature-item">
           <img
             class="feature-item__icon"
-            src="assets/images/icons/window-market.svg"
+            src="assets/images/icons/telegram.svg"
             alt=""
             aria-hidden="true"
           />
@@ -185,11 +199,6 @@
               src="assets/images/rocking-chair.png"
               alt="Hauteville Concrete Rocking Chair"
             />
-            <img
-              class="product-card__badge"
-              src="assets/images/icons/sale.svg"
-              alt="Sale"
-            />
           </div>
           <h3 class="product-card__title">Hauteville Concrete Rocking Chair</h3>
           <p class="product-card__price">$350</p>
@@ -202,6 +211,11 @@
               class="product-card__image"
               src="assets/images/pavilion-speaker.png"
               alt="Pavilion Speaker"
+            />
+            <img
+              class="product-card__badge"
+              src="assets/images/icons/sale.svg"
+              alt="Sale"
             />
           </div>
           <h3 class="product-card__title">Pavilion Speaker</h3>
@@ -281,7 +295,7 @@
           src="assets/images/user.png"
           alt="Jean Doe"
         />
-        <p class="testimonial__author">Jean Doe, via Twitter</p>
+        <p class="testimonial__author">Jean Doe, via <span class="testimonial__author-twitter">Twitter</span></p>
         <blockquote class="testimonial__text">
           Far far away, behind the word mountains, far from the countries
           Vokalia and Consonantia, there live the blind texts. Separated they
@@ -359,7 +373,6 @@
   <section class="newsletter" aria-label="Підписка на розсилку">
     <div class="container">
 
-      <span class="newsletter__eyebrow">Newsletter</span>
       <h2 class="newsletter__title">Newsletter</h2>
       <p class="newsletter__subtitle">
         Just stay tune for our latest Product. Now you can subscribe
