@@ -1,5 +1,5 @@
 /* ================================================
-   variables.css
+   _variables.css
    Глобальні CSS-змінні (дизайн-токени) проєкту.
    Підключається ПЕРШИМ у styles.css через @import.
    ================================================ */
@@ -63,6 +63,9 @@
   /* ── Header ── */
   --header-height-mobile:  60px;
   --header-height-desktop: 80px;
+  --mobile-search-height:  56px;  /* окремий рядок пошуку під header (<1025px) */
+  --header-stack-height:   calc(var(--header-height-mobile) + var(--mobile-search-height));
+  /* ^ висота "header + рядок пошуку" разом; на 1025px+ переозначається на --header-height-desktop */
 
   /* ── Бургер ── */
   --burger-bar-color:  var(--color-black);
