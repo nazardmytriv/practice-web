@@ -6,7 +6,7 @@
    ================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Playfair+Display:wght@400;500;700&family=Raleway:wght@400;500;700;900&family=Open+Sans:wght@400;600&display=swap');
-@import 'variables.css';
+@import '_variables.css';
 
 
 /* ────────────────────────────────────────────────
@@ -207,7 +207,6 @@ img { display: block; max-width: 100%; height: auto; }
 .nav__link.is-active:hover { color: var(--color-accent); }
 .nav__link.is-active { color: var(--color-black); font-weight: 400; }
 
-/* Іконки дій (пошук, кошик) — приховані на мобільних, видимі на десктопі */
 .header__actions {
   display: none;
   gap: var(--space-md);
@@ -224,12 +223,6 @@ img { display: block; max-width: 100%; height: auto; }
   height: 20px;
 }
 
-.header__action-icon {
-  width: 16px;
-  height: 16px;
-}
-
-/* Кошик + юзер */
 .header__cart-wrapper {
   position: relative;
   display: inline-flex;
@@ -256,7 +249,7 @@ img { display: block; max-width: 100%; height: auto; }
   height: 20px;
 }
 
-/* Пошук */
+
 .header__search {
   display: flex;
   align-items: center;
@@ -285,7 +278,6 @@ img { display: block; max-width: 100%; height: auto; }
   margin-left: 3px;
 }
 
-/* Пошук окремим рядком під header — мобільні/планшети/лаптопи (<1025px) */
 .header__mobile-search {
   position: fixed;
   top: var(--header-height-mobile);
@@ -309,7 +301,7 @@ img { display: block; max-width: 100%; height: auto; }
   outline: none;
   background: transparent;
   font-family: 'Playfair Display', serif;
-  font-size: 16px;  /* >=16px — без авто-зуму на iOS при фокусі */
+  font-size: 16px; 
   color: var(--color-text);
 }
 
@@ -324,7 +316,7 @@ img { display: block; max-width: 100%; height: auto; }
   flex-shrink: 0;
 }
 
-/* Більший відступ перед кошиком/юзером, ніж між інпутом і лупою */
+
 .header__mobile-search .header__cart-wrapper {
   margin-left: var(--space-lg);
   flex-shrink: 0;
@@ -351,12 +343,12 @@ img { display: block; max-width: 100%; height: auto; }
   align-items: center; 
 }
 
-/* overlay прибрано — використовуємо radial-gradient у background-image */
+
 .hero::before {
   content: none;
 }
 
-/* Робимо так, щоб вміст всередині hero ставав по вертикалі красивим флексом */
+
 .hero__inner {
   position: relative;
   z-index: 2;
@@ -365,7 +357,7 @@ img { display: block; max-width: 100%; height: auto; }
   justify-content: flex-start; 
 }
 
-/* Сама біла картка */
+
 .hero__content {
   background-color: rgba(255, 255, 255, 0.92);
   padding: 50px;
@@ -374,27 +366,6 @@ img { display: block; max-width: 100%; height: auto; }
   box-sizing: border-box;
 }
 
-/* Мета-теги над заголовком */
-.hero__meta {
-  display: flex;
-  gap: var(--space-xl);
-  margin-bottom: var(--space-md);
-}
-
-.hero__meta-item {
-  font-family: var(--font-primary);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-bold);
-  letter-spacing: var(--letter-spacing-wide);
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.70);
-}
-
-.hero__meta-item--active {
-  color: var(--color-white);
-  border-bottom: 1px solid var(--color-white);
-  padding-bottom: 2px;
-}
 
 .hero__price {
   font-family: 'Playfair Display', serif;
@@ -409,13 +380,12 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 .hero__title {
-font-family: 'Montserrat', sans-serif; /* Твій Montserrat */
-  font-size: 24px;                       /* Був 38px, тепер став всього на дещицю більшим за 14px підзаголовка */
-  font-weight: 400;                      /* Звичайний тонкий стиль, нуль жирності */
-  line-height: 1.4;                      /* Акуратний міжрядковий інтервал для такого розміру */
-  text-transform: none;                  /* Текст пишеться звичайними літерами, як у полі вводу */
+font-family: 'Montserrat', sans-serif; 
+  font-size: 24px;              
+  font-weight: 400;              
+  line-height: 1.4;                      
+  text-transform: none;                
   color: var(--color-black);
-  margin-bottom: var(--space-sm);
   margin-bottom: 16px;
 }
 
@@ -435,7 +405,6 @@ font-family: 'Montserrat', sans-serif; /* Твій Montserrat */
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
   color: var(--color-accent-light);
-  border: 1px solid var(--color-accent-light);
   padding: 14px 32px;
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-bold);
@@ -444,7 +413,6 @@ font-family: 'Montserrat', sans-serif; /* Твій Montserrat */
   background-color: transparent;
   transition: all var(--transition-base);
   border: 2px solid var(--color-accent-light);
-  gap: 20px;
 }
 
 
@@ -541,7 +509,6 @@ font-family: 'Montserrat', sans-serif; /* Твій Montserrat */
   gap: var(--space-xl);
 }
 
-/* Картка товару */
 .product-card {
   text-align: center;
 }
@@ -562,7 +529,6 @@ font-family: 'Montserrat', sans-serif; /* Твій Montserrat */
   display: block;
 }
 
-/* Бейдж "Sale" */
 .product-card__badge {
   position: absolute;
   top: var(--space-md);
@@ -729,17 +695,6 @@ font-family: 'Montserrat', sans-serif; /* Твій Montserrat */
   text-align: center;
 }
 
-.newsletter__eyebrow {
-  display: block;
-  font-family: var(--font-primary);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-bold);
-  letter-spacing: var(--letter-spacing-widest);
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.70);
-  margin-bottom: var(--space-sm);
-}
-
 .newsletter__title {
   font-family: var(--font-primary);
   font-size: var(--font-size-xl);
@@ -766,7 +721,7 @@ font-family: 'Montserrat', sans-serif; /* Твій Montserrat */
 }
 
 .newsletter__input {
-  flex: none;       /* flex:1 (flex-basis:0) ламав height:48px у колонці — лишав ~15px */
+  flex: none;    
   width: 100%;
   height: 48px;
   padding: 0 var(--space-lg);
@@ -774,7 +729,7 @@ font-family: 'Montserrat', sans-serif; /* Твій Montserrat */
   background-color: rgba(255, 255, 255, 0.25);
   color: var(--color-white);
   font-family: var(--font-secondary);
-  font-size: 16px;  /* було var(--font-size-sm)=13px — iOS зумить поля менші за 16px */
+  font-size: 16px; 
   outline: none;
   box-sizing: border-box;
 }
@@ -823,7 +778,6 @@ font-family: 'Montserrat', sans-serif; /* Твій Montserrat */
   margin-bottom: var(--space-lg);
 }
 
-/* Колонка з логотипом */
 .footer__brand {}
 
 .footer__logo {
@@ -845,11 +799,10 @@ font-family: 'Montserrat', sans-serif; /* Твій Montserrat */
   max-width: 260px;
 }
 
-/* Колонки посилань */
 .footer__nav-group {}
 
 .footer__nav-title {
-  display: none; /* заголовки колонок — лише для screen readers */
+  display: none; 
 }
 
 .footer__nav-list {
@@ -868,7 +821,6 @@ font-family: 'Montserrat', sans-serif; /* Твій Montserrat */
   color: var(--color-accent);
 }
 
-/* Нижній рядок футера */
 .footer__bottom {
   display: flex;
   flex-direction: column;
