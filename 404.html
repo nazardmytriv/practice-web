@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Сторінку не знайдено | SHOP.</title>
+  <meta name="description" content="Сторінку не знайдено. Поверніться на головну сторінку SHOP. або перегляньте каталог дизайнерських меблів." />
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Playfair+Display:wght@400;500;700&family=Raleway:wght@400;500;700;900&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header__inner container">
+    <a href="index.html" class="header__logo" aria-label="SHOP. — головна сторінка">SHOP.</a>
+
+    <nav class="nav" id="main-nav" aria-label="Головна навігація">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="products.html" class="nav__link">Магазин</a></li>
+        <li class="nav__item"><a href="about.html" class="nav__link">Про нас</a></li>
+        <li class="nav__item"><a href="services.html" class="nav__link">Послуги</a></li>
+        <li class="nav__item"><a href="contact.html" class="nav__link">Контакти</a></li>
+      </ul>
+    </nav>
+
+    <div class="header__actions">
+      <div class="header__search">
+        <input type="text" class="header__search-input" placeholder="Пошук.." aria-label="Пошук" />
+        <a href="products.html" class="header__action header__action--search" aria-label="Шукати">
+          <img src="assets/images/icons/magnifier.svg" alt="" />
+        </a>
+      </div>
+      <div class="header__cart-wrapper">
+        <img src="assets/images/icons/cart.svg" alt="Кошик" class="header__cart-icon" />
+        <img src="assets/images/icons/user.svg" alt="Профіль" class="header__user-icon" />
+      </div>
+    </div>
+
+    <button class="burger" type="button" id="burger-btn" aria-controls="main-nav" aria-expanded="false" aria-label="Відкрити меню">
+      <span class="burger__bar"></span>
+      <span class="burger__bar"></span>
+      <span class="burger__bar"></span>
+    </button>
+  </div>
+
+  <div class="header__mobile-search">
+    <input type="text" class="header__mobile-search-input" placeholder="Пошук.." aria-label="Пошук" />
+    <img src="assets/images/icons/magnifier.svg" alt="Шукати" class="header__mobile-search-icon" />
+    <div class="header__cart-wrapper">
+      <img src="assets/images/icons/cart.svg" alt="Кошик" class="header__cart-icon" />
+      <img src="assets/images/icons/user.svg" alt="Профіль" class="header__user-icon" />
+    </div>
+  </div>
+</header>
+
+
+<main id="main-content">
+
+  <section class="error-page" aria-labelledby="error-title">
+    <div class="container">
+      <p class="error-page__code" aria-hidden="true">404</p>
+      <h1 class="error-page__title" id="error-title">Сторінку не знайдено</h1>
+      <p class="error-page__text">
+        Можливо, посилання застаріло або в адресі є помилка. Поверніться на головну або перегляньте каталог.
+      </p>
+      <div class="error-page__actions">
+        <a href="index.html" class="btn-outline">На головну</a>
+        <a href="products.html" class="btn-outline">До каталогу</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo">SHOP.</a>
+        <p class="footer__brand-text">
+          Дизайнерські меблі та предмети інтер’єру з характером.
+          Добираємо речі, які служать роками й прикрашають дім.
+        </p>
+      </div>
+
+      <nav class="footer__nav-group" aria-label="Компанія">
+        <h2 class="footer__nav-title">Компанія</h2>
+        <ul class="footer__nav-list">
+          <li><a href="about.html" class="footer__nav-link">Про нас</a></li>
+          <li><a href="services.html" class="footer__nav-link">Послуги</a></li>
+          <li><a href="contact.html" class="footer__nav-link">Контакти</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__nav-group" aria-label="Каталог">
+        <h2 class="footer__nav-title">Каталог</h2>
+        <ul class="footer__nav-list">
+          <li><a href="products.html?category=seating" class="footer__nav-link">Крісла й стільці</a></li>
+          <li><a href="products.html?category=tables" class="footer__nav-link">Столи й шафи</a></li>
+          <li><a href="products.html?category=decor" class="footer__nav-link">Декор і аксесуари</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__nav-group" aria-label="Допомога">
+        <h2 class="footer__nav-title">Допомога</h2>
+        <ul class="footer__nav-list">
+          <li><a href="index.html" class="footer__nav-link">Головна</a></li>
+          <li><a href="services.html#faq" class="footer__nav-link">Часті питання</a></li>
+          <li><a href="contact.html" class="footer__nav-link">Залишити заявку</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 SHOP. Усі права захищено.</p>
+      <div class="footer__social">
+        <a href="https://x.com" class="footer__social-link" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><img src="assets/images/icons/twiter.svg" alt="" /></a>
+        <a href="https://www.facebook.com" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><img src="assets/images/icons/facebook.svg" alt="" /></a>
+        <a href="https://www.linkedin.com" class="footer__social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><img src="assets/images/icons/LinkedIn.svg" alt="" /></a>
+        <a href="https://dribbble.com" class="footer__social-link" aria-label="Dribbble" target="_blank" rel="noopener noreferrer"><img src="assets/images/icons/Dribbble.svg" alt="" /></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/config.js" defer></script>
+<script src="assets/js/script.js" defer></script>
+</body>
+</html>

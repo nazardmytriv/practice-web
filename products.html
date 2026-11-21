@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Каталог — SHOP. Дизайнерські меблі та декор</title>
+  <meta name="description" content="Каталог SHOP.: дизайнерські крісла, столи, шафи та предмети декору. Фільтр за категорією, пошук і сортування за ціною." />
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Playfair+Display:wght@400;500;700&family=Raleway:wght@400;500;700;900&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header__inner container">
+    <a href="index.html" class="header__logo" aria-label="SHOP. — головна сторінка">SHOP.</a>
+
+    <nav class="nav" id="main-nav" aria-label="Головна навігація">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="products.html" class="nav__link is-active" aria-current="page">Магазин</a></li>
+        <li class="nav__item"><a href="about.html" class="nav__link">Про нас</a></li>
+        <li class="nav__item"><a href="services.html" class="nav__link">Послуги</a></li>
+        <li class="nav__item"><a href="contact.html" class="nav__link">Контакти</a></li>
+      </ul>
+    </nav>
+
+    <div class="header__actions">
+      <div class="header__search">
+        <input type="text" class="header__search-input" placeholder="Пошук.." aria-label="Пошук" />
+        <a href="products.html" class="header__action header__action--search" aria-label="Шукати">
+          <img src="assets/images/icons/magnifier.svg" alt="" />
+        </a>
+      </div>
+      <div class="header__cart-wrapper">
+        <img src="assets/images/icons/cart.svg" alt="Кошик" class="header__cart-icon" />
+        <img src="assets/images/icons/user.svg" alt="Профіль" class="header__user-icon" />
+      </div>
+    </div>
+
+    <button class="burger" type="button" id="burger-btn" aria-controls="main-nav" aria-expanded="false" aria-label="Відкрити меню">
+      <span class="burger__bar"></span>
+      <span class="burger__bar"></span>
+      <span class="burger__bar"></span>
+    </button>
+  </div>
+
+  <div class="header__mobile-search">
+    <input type="text" class="header__mobile-search-input" placeholder="Пошук.." aria-label="Пошук" />
+    <img src="assets/images/icons/magnifier.svg" alt="Шукати" class="header__mobile-search-icon" />
+    <div class="header__cart-wrapper">
+      <img src="assets/images/icons/cart.svg" alt="Кошик" class="header__cart-icon" />
+      <img src="assets/images/icons/user.svg" alt="Профіль" class="header__user-icon" />
+    </div>
+  </div>
+</header>
+
+
+<main id="main-content">
+
+  <section class="page-hero" aria-label="Заголовок сторінки">
+    <div class="container">
+      <h1 class="page-hero__title">Товари</h1>
+      <p class="page-hero__subtitle">Дизайнерські меблі та предмети інтер’єру</p>
+    </div>
+  </section>
+
+  <section class="products" aria-labelledby="products-title">
+    <div class="container">
+
+      <header class="products__header">
+        <span class="section-eyebrow">Добірка</span>
+        <h2 class="section-title" id="products-title">Каталог<span>.</span></h2>
+        <p class="products__desc">
+          Речі з характером: кожну модель ми обираємо за матеріалами, формою та якістю виконання.
+        </p>
+      </header>
+
+      <div class="toolbar">
+        <div class="filters" role="group" aria-label="Категорії товарів">
+          <button type="button" class="filters__btn" data-category="all">Усі</button>
+          <button type="button" class="filters__btn" data-category="seating">Крісла й стільці</button>
+          <button type="button" class="filters__btn" data-category="tables">Столи й шафи</button>
+          <button type="button" class="filters__btn" data-category="decor">Декор і аксесуари</button>
+        </div>
+
+        <div class="toolbar__controls">
+          <div class="toolbar__field">
+            <label for="products-search" class="visually-hidden">Пошук за назвою</label>
+            <input type="search" id="products-search" class="toolbar__input" placeholder="Пошук за назвою" />
+          </div>
+          <div class="toolbar__field">
+            <label for="products-sort" class="visually-hidden">Сортування</label>
+            <select id="products-sort" class="toolbar__select">
+              <option value="default">За замовчуванням</option>
+              <option value="price-asc">Спочатку дешевші</option>
+              <option value="price-desc">Спочатку дорожчі</option>
+              <option value="name">За назвою (A–Z)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <p class="products__count" id="products-count" role="status"></p>
+      <div class="products__state" id="products-state" hidden></div>
+      <div class="products__grid" id="products-grid"></div>
+
+    </div>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <div class="container">
+      <h2 class="newsletter__title" id="newsletter-title">Розсилка</h2>
+      <p class="newsletter__subtitle">Дізнавайтеся першими про нові колекції та акції</p>
+      <form class="newsletter__form" action="#" method="post" novalidate>
+        <label for="newsletter-email" class="visually-hidden">Ваш email</label>
+        <input type="email" id="newsletter-email" class="newsletter__input" placeholder="Email" required />
+        <button type="submit" class="newsletter__btn">Підписатися</button>
+      </form>
+      <p class="newsletter__status" role="status"></p>
+    </div>
+  </section>
+
+</main>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo">SHOP.</a>
+        <p class="footer__brand-text">
+          Дизайнерські меблі та предмети інтер’єру з характером.
+          Добираємо речі, які служать роками й прикрашають дім.
+        </p>
+      </div>
+
+      <nav class="footer__nav-group" aria-label="Компанія">
+        <h2 class="footer__nav-title">Компанія</h2>
+        <ul class="footer__nav-list">
+          <li><a href="about.html" class="footer__nav-link">Про нас</a></li>
+          <li><a href="services.html" class="footer__nav-link">Послуги</a></li>
+          <li><a href="contact.html" class="footer__nav-link">Контакти</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__nav-group" aria-label="Каталог">
+        <h2 class="footer__nav-title">Каталог</h2>
+        <ul class="footer__nav-list">
+          <li><a href="products.html?category=seating" class="footer__nav-link">Крісла й стільці</a></li>
+          <li><a href="products.html?category=tables" class="footer__nav-link">Столи й шафи</a></li>
+          <li><a href="products.html?category=decor" class="footer__nav-link">Декор і аксесуари</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__nav-group" aria-label="Допомога">
+        <h2 class="footer__nav-title">Допомога</h2>
+        <ul class="footer__nav-list">
+          <li><a href="index.html" class="footer__nav-link">Головна</a></li>
+          <li><a href="services.html#faq" class="footer__nav-link">Часті питання</a></li>
+          <li><a href="contact.html" class="footer__nav-link">Залишити заявку</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 SHOP. Усі права захищено.</p>
+      <div class="footer__social">
+        <a href="https://x.com" class="footer__social-link" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><img src="assets/images/icons/twiter.svg" alt="" /></a>
+        <a href="https://www.facebook.com" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><img src="assets/images/icons/facebook.svg" alt="" /></a>
+        <a href="https://www.linkedin.com" class="footer__social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><img src="assets/images/icons/LinkedIn.svg" alt="" /></a>
+        <a href="https://dribbble.com" class="footer__social-link" aria-label="Dribbble" target="_blank" rel="noopener noreferrer"><img src="assets/images/icons/Dribbble.svg" alt="" /></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Модальне вікно замовлення -->
+<div class="modal" id="order-modal" hidden>
+  <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button type="button" class="modal__close" data-modal-close aria-label="Закрити вікно">&times;</button>
+    <h2 class="modal__title" id="modal-title">Замовити товар</h2>
+    <p class="modal__product"></p>
+
+    <form class="form" data-request-form novalidate>
+      <input type="hidden" name="product_id" />
+
+      <div class="form__field">
+        <label class="form__label" for="order-name">Ім’я</label>
+        <input class="form__input" type="text" id="order-name" name="name" autocomplete="name" required />
+        <span class="form__error"></span>
+      </div>
+
+      <div class="form__field">
+        <label class="form__label" for="order-email">Email</label>
+        <input class="form__input" type="email" id="order-email" name="email" autocomplete="email" required />
+        <span class="form__error"></span>
+      </div>
+
+      <div class="form__field">
+        <label class="form__label" for="order-phone">Телефон (необов’язково)</label>
+        <input class="form__input" type="tel" id="order-phone" name="phone" autocomplete="tel" />
+        <span class="form__error"></span>
+      </div>
+
+      <div class="form__field">
+        <label class="form__label" for="order-message">Коментар (необов’язково)</label>
+        <textarea class="form__input form__input--textarea" id="order-message" name="message" rows="3" maxlength="600"></textarea>
+        <span class="form__error"></span>
+      </div>
+
+      <button type="submit" class="form__submit">Надіслати заявку</button>
+      <p class="form__status" role="status"></p>
+    </form>
+  </div>
+</div>
+
+<script src="assets/js/config.js" defer></script>
+<script src="assets/js/script.js" defer></script>
+<script src="assets/js/products.js" defer></script>
+</body>
+</html>

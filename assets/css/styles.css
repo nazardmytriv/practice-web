@@ -5,9 +5,6 @@
    зростання брейкпоінтів.
    ================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Playfair+Display:wght@400;500;700&family=Raleway:wght@400;500;700;900&family=Open+Sans:wght@400;600&display=swap');
-@import 'variables.css';
-
 
 /* ────────────────────────────────────────────────
    RESET & BASE
@@ -1028,4 +1025,631 @@ font-family: 'Montserrat', sans-serif;
 
   /* Stats */
   .stats-item__number { font-size: 60px; }
+}
+
+
+/* ================================================================
+   ДОДАТКОВІ СТИЛІ (каталог, модалка, форми, службові класи)
+   Вставити в КІНЕЦЬ styles.css, після медіа-запитів
+   ================================================================ */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.is-locked { overflow: hidden; }
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-dark);
+  outline-offset: 2px;
+}
+
+.header__mobile-search-icon { cursor: pointer; }
+
+/* Заголовки колонок футера: доступні для скрінрідерів, але не показуються */
+.footer__nav-title {
+  display: block;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+/* ── Hero внутрішніх сторінок ── */
+.page-hero {
+  position: relative;
+  margin-top: var(--header-stack-height);
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--color-white);
+  background-color: #c9c9c9;
+  background-image: url('../images/hero-chair.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-overlay);
+}
+
+.page-hero .container { position: relative; }
+
+.page-hero__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.page-hero__subtitle {
+  margin-top: var(--space-sm);
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+}
+
+/* ── Каталог: панель керування ── */
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.filters__btn {
+  padding: 10px 18px;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filters__btn:hover { border-color: var(--color-accent); }
+
+.filters__btn.is-active {
+  color: var(--color-white);
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.toolbar__controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.toolbar__input,
+.toolbar__select {
+  width: 100%;
+  height: 44px;
+  padding: 0 var(--space-md);
+  font-family: var(--font-secondary);
+  font-size: 16px;
+  color: var(--color-text);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+}
+
+.products__count {
+  margin-bottom: var(--space-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  text-align: center;
+}
+
+.products__state {
+  padding: var(--space-2xl) 0;
+  text-align: center;
+  color: var(--color-text-light);
+}
+
+.products__state[hidden] { display: none; }
+.products__state-text { margin-bottom: var(--space-md); }
+
+.btn-outline {
+  display: inline-block;
+  padding: 10px 24px;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-wider);
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+  background: transparent;
+  border: 1px solid var(--color-accent-light);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-outline:hover {
+  color: var(--color-white);
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.product-card__btn { margin-top: var(--space-md); }
+
+.product-card__title {
+  overflow-wrap: anywhere;
+}
+
+/* ── Модальне вікно ── */
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  background-color: rgba(0, 0, 0, 0.55);
+  overflow-y: auto;
+}
+
+.modal[hidden] { display: none; }
+
+.modal__dialog {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  max-height: 100%;
+  overflow-y: auto;
+  padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  background-color: var(--color-white);
+}
+
+.modal__close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--color-text);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modal__title {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-black);
+  text-transform: uppercase;
+  color: var(--color-black);
+}
+
+.modal__product {
+  margin: var(--space-xs) 0 var(--space-lg);
+  font-family: 'Playfair Display', serif;
+  font-size: var(--font-size-sm);
+  color: var(--color-accent-dark);
+  overflow-wrap: anywhere;
+}
+
+/* ── Форми ── */
+.form__field { margin-bottom: var(--space-sm); }
+
+.form__label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+}
+
+.form__input {
+  width: 100%;
+  padding: 12px var(--space-md);
+  font-family: var(--font-secondary);
+  font-size: 16px;
+  color: var(--color-text);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+}
+
+.form__input--textarea { resize: vertical; min-height: 90px; }
+
+.form__input[aria-invalid="true"] { border-color: #b3261e; }
+
+.form__error {
+  display: block;
+  min-height: 18px;
+  margin-top: 2px;
+  font-size: 12px;
+  color: #b3261e;
+}
+
+.form__submit {
+  width: 100%;
+  height: 48px;
+  margin-top: var(--space-sm);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-wider);
+  text-transform: uppercase;
+  color: var(--color-white);
+  background-color: var(--color-black);
+  border: none;
+  cursor: pointer;
+}
+
+.form__submit:disabled { opacity: 0.6; cursor: wait; }
+
+.form__status {
+  min-height: 22px;
+  margin-top: var(--space-sm);
+  font-size: var(--font-size-sm);
+  text-align: center;
+}
+
+.form__status.is-ok { color: #2e7d32; }
+.form__status.is-error { color: #b3261e; }
+
+.newsletter__status {
+  min-height: 22px;
+  margin-top: var(--space-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-white);
+}
+
+/* ── Планшет і вище ── */
+@media screen and (min-width: 769px) {
+  .page-hero { min-height: 420px; }
+  .page-hero__title { font-size: 56px; }
+
+  .toolbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .filters { justify-content: flex-start; }
+
+  .toolbar__controls { flex-direction: row; }
+  .toolbar__field { width: 200px; }
+  .products__count { text-align: left; }
+}
+
+
+
+/* ================================================================
+   СТОРІНКИ: Про нас, Контакти, 404
+   Вставити в КІНЕЦЬ styles.css (після попереднього додатку)
+   ================================================================ */
+
+.about { padding: var(--space-2xl) 0; }
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+.about__title {
+  margin-bottom: var(--space-md);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--color-black);
+}
+
+.about__title--next { margin-top: var(--space-xl); }
+
+.about__text {
+  margin-bottom: var(--space-md);
+  font-size: var(--font-size-sm);
+  line-height: 1.9;
+  color: var(--color-text-light);
+}
+
+.about__image {
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  max-height: 420px;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+}
+
+.team { padding: var(--space-2xl) 0 var(--space-3xl); }
+
+.team__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+.team-card { text-align: center; }
+
+.team-card__photo {
+  width: 120px;
+  height: 160px;
+  margin: 0 auto var(--space-md);
+  object-fit: cover;
+  border-radius: 0 60px 60px 0;
+  background-color: var(--color-bg-light);
+}
+
+.team-card__name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--color-black);
+}
+
+.team-card__role {
+  margin: var(--space-xs) 0 var(--space-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-accent);
+}
+
+.team-card__text {
+  max-width: 340px;
+  margin: 0 auto;
+  font-size: var(--font-size-sm);
+  line-height: 1.8;
+  color: var(--color-text-light);
+}
+
+/* ── Контакти ── */
+.contact { padding: var(--space-2xl) 0 var(--space-3xl); }
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+}
+
+.contact__list { margin-top: var(--space-lg); }
+
+.contact__item {
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.contact__label {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-wider);
+  text-transform: uppercase;
+  color: var(--color-text-light);
+}
+
+.contact__value {
+  margin-top: var(--space-xs);
+  color: var(--color-text);
+  overflow-wrap: anywhere;
+}
+
+.contact__value a:hover { color: var(--color-accent); }
+
+/* ── Сторінка 404 ── */
+.error-page {
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - var(--header-stack-height));
+  margin-top: var(--header-stack-height);
+  padding: var(--space-2xl) 0;
+  text-align: center;
+}
+
+.error-page__code {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 96px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--color-accent-light);
+}
+
+.error-page__title {
+  margin: var(--space-md) 0;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-black);
+  text-transform: uppercase;
+  color: var(--color-black);
+}
+
+.error-page__text {
+  max-width: 460px;
+  margin: 0 auto var(--space-lg);
+  color: var(--color-text-light);
+}
+
+.error-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+@media screen and (min-width: 769px) {
+  .about__grid { grid-template-columns: 1fr 1fr; align-items: start; }
+  .team__grid { grid-template-columns: repeat(3, 1fr); }
+  .contact__grid { grid-template-columns: 1fr 1fr; align-items: start; }
+  .error-page__code { font-size: 160px; }
+}
+
+/* ================================================================
+   ГОЛОВНА: кнопка каталогу та точки слайдера
+   Вставити в КІНЕЦЬ styles.css
+   ================================================================ */
+
+.section-cta {
+  margin-top: var(--space-2xl);
+  text-align: center;
+}
+
+button.testimonial__dot {
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.testimonial__text { min-height: 120px; }
+
+
+/* ================================================================
+   СТОРІНКА «ПОСЛУГИ»: кроки, акордеон, блок із закликом
+   Вставити в КІНЕЦЬ styles.css
+   ================================================================ */
+
+.process { padding: var(--space-2xl) 0; }
+
+.steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  counter-reset: step;
+}
+
+.step {
+  position: relative;
+  padding-top: 56px;
+  text-align: center;
+  counter-increment: step;
+}
+
+.step::before {
+  content: counter(step);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  transform: translateX(-50%);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: var(--color-white);
+  background-color: var(--color-accent);
+  border-radius: 50%;
+}
+
+.step__title {
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-black);
+}
+
+.step__text {
+  max-width: 260px;
+  margin: 0 auto;
+  font-size: var(--font-size-sm);
+  line-height: 1.75;
+  color: var(--color-text-light);
+}
+
+.faq {
+  padding: var(--space-2xl) 0 var(--space-3xl);
+  background-color: var(--color-bg-light);
+}
+
+.faq__list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq__item { border-bottom: 1px solid var(--color-border); }
+
+.faq__heading { font-size: inherit; font-weight: inherit; }
+
+.faq__question {
+  position: relative;
+  width: 100%;
+  padding: var(--space-md) 40px var(--space-md) 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: left;
+  color: var(--color-black);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.faq__question::after {
+  content: '+';
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--color-accent);
+}
+
+.faq__item.is-open .faq__question::after { content: '\2212'; }
+
+.faq__answer {
+  padding: 0 40px var(--space-md) 0;
+  font-size: var(--font-size-sm);
+  line-height: 1.8;
+  color: var(--color-text-light);
+}
+
+.cta {
+  padding: var(--space-2xl) 0;
+  text-align: center;
+}
+
+.cta__title {
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-black);
+  text-transform: uppercase;
+  color: var(--color-black);
+}
+
+.cta__text {
+  max-width: 480px;
+  margin: 0 auto var(--space-lg);
+  color: var(--color-text-light);
+}
+
+@media screen and (min-width: 769px) {
+  .steps { grid-template-columns: repeat(4, 1fr); }
 }

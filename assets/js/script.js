@@ -1,79 +1,215 @@
 /**
- * script.js
- * Логіка мобільного бургер-меню.
- *
- * Принцип роботи:
- *  - Клік на .burger додає/прибирає клас .is-open на .burger і .nav
- *  - CSS-клас .is-open відповідає за анімацію: меню розкривається через max-height
- *  - Клік на посилання меню закриває меню (зручно на мобільних)
- *  - Клік за межами header на відкрите меню — закриває його
+ * script.js — спільна логіка всіх сторінок:
+ * бургер-меню, пошук у шапці, API-клієнт Supabase,
+ * валідація форм, модальне вікно замовлення, підписка на розсилку.
  */
+(() => {
+  'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
+  const cfg = window.SHOP_CONFIG;
 
-  /* ── Знаходимо елементи ── */
+  /* ── Клієнт Supabase REST (fetch) ── */
+  async function api(path, options = {}) {
+    const res = await fetch(`${cfg.SUPABASE_URL}/rest/v1/${path}`, {
+      ...options,
+        headers: {
+        apikey: cfg.SUPABASE_KEY,
+        Authorization: `Bearer ${cfg.SUPABASE_KEY}`,
+        'Content-Type': 'application/json',
+        ...options.headers
+      }
+    });
+    if (!res.ok) throw new Error(`Помилка сервера: ${res.status}`);
+    const text = await res.text();
+    return text ? JSON.parse(text) : null;
+  }
+
+  /* ── Бургер-меню ── */
   const burger = document.querySelector('.burger');
-  const nav    = document.querySelector('.nav');
+  const nav = document.querySelector('.nav');
   const header = document.querySelector('.header');
 
-  // Якщо потрібних елементів немає — виходимо
-  if (!burger || !nav) return;
+  if (burger && nav) {
+    const setMenu = (open) => {
+      burger.classList.toggle('is-open', open);
+      nav.classList.toggle('is-open', open);
+      burger.setAttribute('aria-expanded', String(open));
+    };
 
-  /* ── Допоміжна функція: перемикає стан меню ── */
-  const toggleMenu = (forceClose = false) => {
-    const isOpen = burger.classList.contains('is-open');
+    burger.addEventListener('click', () => setMenu(!nav.classList.contains('is-open')));
+    nav.querySelectorAll('.nav__link').forEach((link) =>
+      link.addEventListener('click', () => setMenu(false))
+    );
+    document.addEventListener('click', (e) => {
+      if (nav.classList.contains('is-open') && !header.contains(e.target)) setMenu(false);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setMenu(false);
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1025) setMenu(false);
+    });
+  }
 
-    if (forceClose || isOpen) {
-      // Закрити
-      burger.classList.remove('is-open');
-      nav.classList.remove('is-open');
-      burger.setAttribute('aria-expanded', 'false');
-    } else {
-      // Відкрити
-      burger.classList.add('is-open');
-      nav.classList.add('is-open');
-      burger.setAttribute('aria-expanded', 'true');
-    }
+  /* ── Пошук у шапці: перехід на каталог із параметром q ── */
+  const goSearch = (value) => {
+    const q = value.trim();
+    window.location.href = q ? `products.html?q=${encodeURIComponent(q)}` : 'products.html';
   };
 
-  /* ── Клік на бургер ── */
-  burger.addEventListener('click', () => {
-    toggleMenu();
-  });
+  document
+    .querySelectorAll('.header__search-input, .header__mobile-search-input')
+    .forEach((input) =>
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') goSearch(input.value);
+      })
+    );
 
-  /* ── Клік на посилання меню — закриває меню ── */
-  const navLinks = nav.querySelectorAll('.nav__link');
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      toggleMenu(true); // примусово закрити
+  document.querySelectorAll('.header__action--search').forEach((link) =>
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      goSearch(link.closest('.header__search').querySelector('input').value);
+    })
+  );
+
+  const mobileIcon = document.querySelector('.header__mobile-search-icon');
+  if (mobileIcon) {
+    mobileIcon.addEventListener('click', () =>
+      goSearch(document.querySelector('.header__mobile-search-input').value)
+    );
+  }
+
+  /* ── Валідація форм ── */
+  const RULES = {
+    name: (v) => (v.length < 2 ? 'Вкажіть ім’я (мінімум 2 символи)' : ''),
+    email: (v) =>
+      /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) ? '' : 'Введіть коректну електронну адресу',
+    phone: (v) =>
+      !v || /^\+?[0-9\s()-]{7,20}$/.test(v)
+        ? ''
+        : 'Телефон: цифри, пробіли, +, дужки або дефіс (7–20 символів)',
+    message: (v) => (v.length > 500 ? 'Максимум 500 символів' : '')
+  };
+
+  function validateField(input) {
+    const rule = RULES[input.name];
+    if (!rule) return true;
+    const error = rule(input.value.trim());
+    const slot = input.closest('.form__field').querySelector('.form__error');
+    slot.textContent = error;
+    input.setAttribute('aria-invalid', error ? 'true' : 'false');
+    return !error;
+  }
+
+  function validateForm(form) {
+    let firstInvalid = null;
+    form.querySelectorAll('input[name], textarea[name]').forEach((input) => {
+      if (!validateField(input) && !firstInvalid) firstInvalid = input;
+    });
+    if (firstInvalid) firstInvalid.focus();
+    return !firstInvalid;
+  }
+
+  function setStatus(form, text, type) {
+    const status = form.querySelector('.form__status');
+    status.textContent = text;
+    status.className = `form__status${type ? ` is-${type}` : ''}`;
+  }
+
+  /* ── Форми заявки (модалка і сторінка «Контакти») ── */
+  document.querySelectorAll('form[data-request-form]').forEach((form) => {
+    form.querySelectorAll('input[name], textarea[name]').forEach((input) => {
+      input.addEventListener('blur', () => validateField(input));
+      input.addEventListener('input', () => {
+        if (input.getAttribute('aria-invalid') === 'true') validateField(input);
+      });
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      setStatus(form, '', '');
+      if (!validateForm(form)) return;
+
+      const data = Object.fromEntries(new FormData(form));
+      const payload = {
+        name: data.name.trim(),
+        email: data.email.trim(),
+        phone: (data.phone || '').trim() || null,
+        message: (data.message || '').trim() || null,
+        product_id: data.product_id ? Number(data.product_id) : null
+      };
+
+      const button = form.querySelector('button[type="submit"]');
+      button.disabled = true;
+      setStatus(form, 'Надсилаємо…', '');
+
+      try {
+        await api('requests', {
+          method: 'POST',
+          headers: { Prefer: 'return=minimal' },
+          body: JSON.stringify(payload)
+        });
+        form.reset();
+        setStatus(form, 'Дякуємо! Заявку отримано, ми зв’яжемося з вами.', 'ok');
+        if (form.closest('#order-modal')) setTimeout(() => window.Shop.closeModal(), 2000);
+      } catch (err) {
+        setStatus(form, 'Не вдалося надіслати заявку. Спробуйте ще раз пізніше.', 'error');
+      } finally {
+        button.disabled = false;
+      }
     });
   });
 
-  /* ── Клік за межами header — закриває відкрите меню ── */
-  document.addEventListener('click', (event) => {
-    const isMenuOpen = nav.classList.contains('is-open');
+  /* ── Модальне вікно замовлення ── */
+  const modal = document.getElementById('order-modal');
+  let closeModal = () => {};
+  let openOrderModal = () => {};
 
-    // Якщо меню відкрите і клік відбувся поза header — закриваємо
-    if (isMenuOpen && !header.contains(event.target) && !nav.contains(event.target)) {
-      toggleMenu(true);
-    }
+  if (modal) {
+    const productLabel = modal.querySelector('.modal__product');
+    const productIdInput = modal.querySelector('[name="product_id"]');
+    const form = modal.querySelector('form');
+    let lastFocused = null;
+
+    openOrderModal = (product) => {
+      lastFocused = document.activeElement;
+      productIdInput.value = product ? product.id : '';
+      productLabel.textContent = product ? product.name : '';
+      setStatus(form, '', '');
+      modal.hidden = false;
+      document.body.classList.add('is-locked');
+      modal.querySelector('input[name="name"]').focus();
+    };
+
+    closeModal = () => {
+      if (modal.hidden) return;
+      modal.hidden = true;
+      document.body.classList.remove('is-locked');
+      if (lastFocused) lastFocused.focus();
+    };
+
+    // Закриття: кнопка «×» або клік на фон поза вікном
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal || e.target.closest('[data-modal-close]')) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  }
+
+  /* ── Підписка на розсилку (без збереження, лише валідація) ── */
+  document.querySelectorAll('.newsletter__form').forEach((form) => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = form.querySelector('input[type="email"]');
+      const status = form.parentElement.querySelector('.newsletter__status');
+      const ok = RULES.email(input.value.trim()) === '';
+      status.textContent = ok
+        ? 'Дякуємо за підписку!'
+        : 'Введіть коректну електронну адресу.';
+      if (ok) form.reset();
+    });
   });
 
-  /* ── Клавіша Escape — закриває меню ── */
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-      toggleMenu(true);
-    }
-  });
-
-  /* ── При зміні розміру вікна: якщо > 1024px — закрити та прибрати класи ── */
-  window.addEventListener('resize', () => {
-    if (window.innerWidth >= 1025) {
-      // На десктопі меню керується CSS, тому скидаємо JS-класи
-      burger.classList.remove('is-open');
-      nav.classList.remove('is-open');
-      burger.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-});
+  window.Shop = { api, openOrderModal, closeModal };
+})();

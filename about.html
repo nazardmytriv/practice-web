@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Про нас — SHOP. Магазин дизайнерських меблів</title>
+  <meta name="description" content="Історія, місія та команда SHOP. — магазину дизайнерських меблів і предметів інтер’єру з натуральних матеріалів." />
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Playfair+Display:wght@400;500;700&family=Raleway:wght@400;500;700;900&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header__inner container">
+    <a href="index.html" class="header__logo" aria-label="SHOP. — головна сторінка">SHOP.</a>
+
+    <nav class="nav" id="main-nav" aria-label="Головна навігація">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="products.html" class="nav__link">Магазин</a></li>
+        <li class="nav__item"><a href="about.html" class="nav__link is-active" aria-current="page">Про нас</a></li>
+        <li class="nav__item"><a href="services.html" class="nav__link">Послуги</a></li>
+        <li class="nav__item"><a href="contact.html" class="nav__link">Контакти</a></li>
+      </ul>
+    </nav>
+
+    <div class="header__actions">
+      <div class="header__search">
+        <input type="text" class="header__search-input" placeholder="Пошук.." aria-label="Пошук" />
+        <a href="products.html" class="header__action header__action--search" aria-label="Шукати">
+          <img src="assets/images/icons/magnifier.svg" alt="" />
+        </a>
+      </div>
+      <div class="header__cart-wrapper">
+        <img src="assets/images/icons/cart.svg" alt="Кошик" class="header__cart-icon" />
+        <img src="assets/images/icons/user.svg" alt="Профіль" class="header__user-icon" />
+      </div>
+    </div>
+
+    <button class="burger" type="button" id="burger-btn" aria-controls="main-nav" aria-expanded="false" aria-label="Відкрити меню">
+      <span class="burger__bar"></span>
+      <span class="burger__bar"></span>
+      <span class="burger__bar"></span>
+    </button>
+  </div>
+
+  <div class="header__mobile-search">
+    <input type="text" class="header__mobile-search-input" placeholder="Пошук.." aria-label="Пошук" />
+    <img src="assets/images/icons/magnifier.svg" alt="Шукати" class="header__mobile-search-icon" />
+    <div class="header__cart-wrapper">
+      <img src="assets/images/icons/cart.svg" alt="Кошик" class="header__cart-icon" />
+      <img src="assets/images/icons/user.svg" alt="Профіль" class="header__user-icon" />
+    </div>
+  </div>
+</header>
+
+
+<main id="main-content">
+
+  <section class="page-hero" aria-label="Заголовок сторінки">
+    <div class="container">
+      <h1 class="page-hero__title">Про нас</h1>
+      <p class="page-hero__subtitle">Магазин дизайнерських меблів та предметів інтер’єру</p>
+    </div>
+  </section>
+
+  <section class="about" aria-label="Про компанію">
+    <div class="container about__grid">
+      <div class="about__content">
+        <h2 class="about__title">Наша історія</h2>
+        <p class="about__text">
+          SHOP. почався з маленького шоуруму, де ми збирали речі від незалежних дизайнерів, яких не
+          знайти у великих мережах. Сьогодні це онлайн-магазин, що працює з авторськими меблями
+          та декором із натуральних матеріалів.
+        </p>
+        <p class="about__text">
+          Ми особисто знайомимося з виробниками, перевіряємо якість і лише потім додаємо модель
+          до каталогу. Тому кожна річ у нас має історію та характер.
+        </p>
+
+        <h2 class="about__title about__title--next">Місія та бачення</h2>
+        <p class="about__text">
+          Наша місія — зробити дизайнерські речі доступнішими й допомогти людям створювати дім,
+          у якому приємно жити.
+        </p>
+        <p class="about__text">
+          Ми бачимо SHOP. як місце, де меблі обирають свідомо: за матеріалами, формою та
+          довговічністю, а не за швидкою модою.
+        </p>
+      </div>
+
+      <img class="about__image" src="assets/images/alato-cabinet.jpg" alt="Комод Alato Cabinet з каталогу магазину" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="team" aria-labelledby="team-title">
+    <div class="container">
+      <header class="products__header">
+        <span class="section-eyebrow">Наші люди</span>
+        <h2 class="section-title" id="team-title">Команда</h2>
+        <p class="products__desc">
+          Невелика команда, яка добре знає свою справу й любить меблі так само, як і ви.
+        </p>
+      </header>
+
+      <div class="team__grid">
+        <article class="team-card">
+          <img class="team-card__photo" src="assets/images/user.png" alt="Олена Мельник" loading="lazy" />
+          <h3 class="team-card__name">Олена Мельник</h3>
+          <p class="team-card__role">Засновниця та директорка</p>
+          <p class="team-card__text">Понад десять років працює з дизайнерськими студіями. Відбирає колекції та відповідає за якість кожної речі в каталозі.</p>
+        </article>
+        <article class="team-card">
+          <img class="team-card__photo" src="assets/images/user.png" alt="Андрій Коваль" loading="lazy" />
+          <h3 class="team-card__name">Андрій Коваль</h3>
+          <p class="team-card__role">Арт-директор</p>
+          <p class="team-card__text">Формує візуальний стиль магазину та допомагає клієнтам поєднувати меблі з наявним інтер’єром.</p>
+        </article>
+        <article class="team-card">
+          <img class="team-card__photo" src="assets/images/user.png" alt="Ірина Шевчук" loading="lazy" />
+          <h3 class="team-card__name">Ірина Шевчук</h3>
+          <p class="team-card__role">Менеджерка з клієнтів</p>
+          <p class="team-card__text">Супроводжує замовлення від заявки до доставки й відповідає на всі питання щодо матеріалів та строків.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter" aria-labelledby="newsletter-title">
+    <div class="container">
+      <h2 class="newsletter__title" id="newsletter-title">Розсилка</h2>
+      <p class="newsletter__subtitle">Дізнавайтеся першими про нові колекції та акції</p>
+      <form class="newsletter__form" action="#" method="post" novalidate>
+        <label for="newsletter-email" class="visually-hidden">Ваш email</label>
+        <input type="email" id="newsletter-email" class="newsletter__input" placeholder="Email" required />
+        <button type="submit" class="newsletter__btn">Підписатися</button>
+      </form>
+      <p class="newsletter__status" role="status"></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo">SHOP.</a>
+        <p class="footer__brand-text">
+          Дизайнерські меблі та предмети інтер’єру з характером.
+          Добираємо речі, які служать роками й прикрашають дім.
+        </p>
+      </div>
+
+      <nav class="footer__nav-group" aria-label="Компанія">
+        <h2 class="footer__nav-title">Компанія</h2>
+        <ul class="footer__nav-list">
+          <li><a href="about.html" class="footer__nav-link">Про нас</a></li>
+          <li><a href="services.html" class="footer__nav-link">Послуги</a></li>
+          <li><a href="contact.html" class="footer__nav-link">Контакти</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__nav-group" aria-label="Каталог">
+        <h2 class="footer__nav-title">Каталог</h2>
+        <ul class="footer__nav-list">
+          <li><a href="products.html?category=seating" class="footer__nav-link">Крісла й стільці</a></li>
+          <li><a href="products.html?category=tables" class="footer__nav-link">Столи й шафи</a></li>
+          <li><a href="products.html?category=decor" class="footer__nav-link">Декор і аксесуари</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__nav-group" aria-label="Допомога">
+        <h2 class="footer__nav-title">Допомога</h2>
+        <ul class="footer__nav-list">
+          <li><a href="index.html" class="footer__nav-link">Головна</a></li>
+          <li><a href="services.html#faq" class="footer__nav-link">Часті питання</a></li>
+          <li><a href="contact.html" class="footer__nav-link">Залишити заявку</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 SHOP. Усі права захищено.</p>
+      <div class="footer__social">
+        <a href="https://x.com" class="footer__social-link" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><img src="assets/images/icons/twiter.svg" alt="" /></a>
+        <a href="https://www.facebook.com" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><img src="assets/images/icons/facebook.svg" alt="" /></a>
+        <a href="https://www.linkedin.com" class="footer__social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><img src="assets/images/icons/LinkedIn.svg" alt="" /></a>
+        <a href="https://dribbble.com" class="footer__social-link" aria-label="Dribbble" target="_blank" rel="noopener noreferrer"><img src="assets/images/icons/Dribbble.svg" alt="" /></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/config.js" defer></script>
+<script src="assets/js/script.js" defer></script>
+</body>
+</html>
