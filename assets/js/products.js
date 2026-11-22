@@ -29,6 +29,18 @@
   };
   let products = [];
 
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+  const createIcon = (name, className, label) => {
+    const svg = document.createElementNS(SVG_NS, 'svg');
+    svg.setAttribute('class', className);
+    svg.setAttribute('role', 'img');
+    svg.setAttribute('aria-label', label);
+    const use = document.createElementNS(SVG_NS, 'use');
+    use.setAttribute('href', `assets/images/icons/sprite.svg#icon-${name}`);
+    svg.append(use);
+    return svg;
+  };
+
   const el = (tag, className, text) => {
     const node = document.createElement(tag);
     if (className) node.className = className;
@@ -64,10 +76,7 @@
     wrap.append(img);
 
     if (product.is_sale) {
-      const badge = el('img', 'product-card__badge');
-      badge.src = 'assets/images/icons/sale.svg';
-      badge.alt = 'Акція';
-      wrap.append(badge);
+      wrap.append(createIcon('sale', 'product-card__badge', 'Акція'));
     }
 
     const button = el('button', 'btn-outline product-card__btn', 'Замовити');
