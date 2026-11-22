@@ -5,7 +5,6 @@
    зростання брейкпоінтів.
    ================================================ */
 
-
 /* ────────────────────────────────────────────────
    RESET & BASE
    ──────────────────────────────────────────────── */
@@ -38,7 +37,6 @@ ul  { list-style: none; }
 a   { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; height: auto; }
 
-
 /* ────────────────────────────────────────────────
    УТИЛІТАРНІ КЛАСИ
    ──────────────────────────────────────────────── */
@@ -50,32 +48,6 @@ img { display: block; max-width: 100%; height: auto; }
   margin-left: auto;
   padding-right: var(--container-pad);
   padding-left: var(--container-pad);
-}
-
-.btn {
-  display: inline-block;
-  padding: 14px 32px;
-  font-family: var(--font-primary);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-bold);
-  letter-spacing: var(--letter-spacing-wider);
-  text-transform: uppercase;
-  border: 1px solid var(--color-white);
-  color: var(--color-white);
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.btn--filled {
-  background-color: var(--color-accent);
-  border-color: var(--color-accent);
-  color: var(--color-white);
-}
-
-.btn--dark {
-  background-color: var(--color-black);
-  border-color: var(--color-black);
-  color: var(--color-white);
 }
 
 .section-eyebrow {
@@ -97,8 +69,6 @@ img { display: block; max-width: 100%; height: auto; }
   color: var(--color-black);
   line-height: 1.1;
 }
-
-
 
 /* ────────────────────────────────────────────────
    HEADER  (Mobile default)
@@ -131,8 +101,6 @@ img { display: block; max-width: 100%; height: auto; }
   text-transform: uppercase;
   letter-spacing: 0;
 }
-
-.header__logo span { color: var(--color-accent); }
 
 /* Бургер */
 .burger {
@@ -251,7 +219,6 @@ img { display: block; max-width: 100%; height: auto; }
   height: 20px;
 }
 
-
 .header__search {
   display: flex;
   align-items: center;
@@ -318,12 +285,10 @@ img { display: block; max-width: 100%; height: auto; }
   flex-shrink: 0;
 }
 
-
 .header__mobile-search .header__cart-wrapper {
   margin-left: var(--space-lg);
   flex-shrink: 0;
 }
-
 
 /* ────────────────────────────────────────────────
    HERO SECTION  (Mobile default)
@@ -337,19 +302,13 @@ img { display: block; max-width: 100%; height: auto; }
   background-color: var(--color-bg-hero);
   background-image:
     radial-gradient(ellipse 60% 80% at 70% 50%, rgba(255,255,255,0.55) 0%, transparent 70%),
-    url('../images/alato-cabinet.jpg');
+    url('../images/alato-cabinet.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   display: flex;
   align-items: center; 
 }
-
-
-.hero::before {
-  content: none;
-}
-
 
 .hero__inner {
   position: relative;
@@ -359,7 +318,6 @@ img { display: block; max-width: 100%; height: auto; }
   justify-content: flex-start; 
 }
 
-
 .hero__content {
   background-color: rgba(255, 255, 255, 0.92);
   padding: 50px;
@@ -367,7 +325,6 @@ img { display: block; max-width: 100%; height: auto; }
   width: 100%;
   box-sizing: border-box;
 }
-
 
 .hero__price {
   font-family: 'Playfair Display', serif;
@@ -416,7 +373,6 @@ font-family: 'Montserrat', sans-serif;
   transition: all var(--transition-base);
   border: 2px solid var(--color-accent-light);
 }
-
 
 /* ────────────────────────────────────────────────
    FEATURES SECTION  (Mobile default)
@@ -473,7 +429,6 @@ font-family: 'Montserrat', sans-serif;
   border: 1px solid var(--color-accent-light);
   padding: 8px 20px;
 }
-
 
 /* ────────────────────────────────────────────────
    PRODUCTS SECTION  (Mobile default)
@@ -557,7 +512,6 @@ font-family: 'Montserrat', sans-serif;
   color: var(--color-text-light);
 }
 
-
 /* ────────────────────────────────────────────────
    TESTIMONIALS SECTION  (Mobile default)
    ──────────────────────────────────────────────── */
@@ -625,23 +579,18 @@ font-family: 'Montserrat', sans-serif;
   background-color: #869791;
 }
 
-
 /* ────────────────────────────────────────────────
    STATS SECTION  (Mobile default)
    ──────────────────────────────────────────────── */
 
 .stats {
   position: relative;
-  background-image: url('../images/boat.png');
+  background-image: url('../images/boat.webp');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
   image-rendering: auto;
   padding: var(--space-3xl) 0;
-}
-
-.stats::before {
-  content: none;
 }
 
 .stats__inner {
@@ -685,7 +634,6 @@ font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   color: var(--color-text-light);
 }
-
 
 /* ────────────────────────────────────────────────
    NEWSLETTER SECTION  (Mobile default)
@@ -761,7 +709,6 @@ font-family: 'Montserrat', sans-serif;
   justify-content: center;
 }
 
-
 /* ────────────────────────────────────────────────
    FOOTER  (Mobile default)
    ──────────────────────────────────────────────── */
@@ -780,8 +727,6 @@ font-family: 'Montserrat', sans-serif;
   margin-bottom: var(--space-lg);
 }
 
-.footer__brand {}
-
 .footer__logo {
   font-family: var(--font-primary);
   font-size: var(--font-size-xl);
@@ -792,16 +737,12 @@ font-family: 'Montserrat', sans-serif;
   display: block;
 }
 
-.footer__logo span { color: var(--color-accent); }
-
 .footer__brand-text {
   font-size: var(--font-size-sm);
   color: var(--color-text-light);
   line-height: 1.75;
   max-width: 260px;
 }
-
-.footer__nav-group {}
 
 .footer__nav-title {
   display: none; 
@@ -853,7 +794,6 @@ font-family: 'Montserrat', sans-serif;
   color: var(--color-text-muted);
   letter-spacing: 0.05em;
 }
-
 
 /* ================================================================
    МЕДІА-ЗАПИТИ (Mobile First — зростаючі брейкпоінти)
@@ -917,7 +857,6 @@ font-family: 'Montserrat', sans-serif;
   }
 }
 
-
 /* ────────────────────────────────────────────────
    c) Laptops: 769px — 1024px
    ──────────────────────────────────────────────── */
@@ -951,7 +890,6 @@ font-family: 'Montserrat', sans-serif;
     align-items: center;
   }
 }
-
 
 /* ────────────────────────────────────────────────
    d) Desktops: 1025px — 1200px
@@ -1010,14 +948,12 @@ font-family: 'Montserrat', sans-serif;
   .stats-item__number { font-size: var(--font-size-hero); }
 }
 
-
 /* ────────────────────────────────────────────────
    e) Extra large: 1201px+
    ──────────────────────────────────────────────── */
 @media screen and (min-width: 1201px) {
 
   :root { --container-pad: 48px; }
-
 
   /* Products — 3 колонки із великими картками */
   .products__grid { grid-template-columns: repeat(3, 1fr); }
@@ -1027,10 +963,8 @@ font-family: 'Montserrat', sans-serif;
   .stats-item__number { font-size: 60px; }
 }
 
-
 /* ================================================================
-   ДОДАТКОВІ СТИЛІ (каталог, модалка, форми, службові класи)
-   Вставити в КІНЕЦЬ styles.css, після медіа-запитів
+   КАТАЛОГ, МОДАЛЬНЕ ВІКНО, ФОРМИ, СЛУЖБОВІ КЛАСИ
    ================================================================ */
 
 .visually-hidden {
@@ -1346,11 +1280,8 @@ font-family: 'Montserrat', sans-serif;
   .products__count { text-align: left; }
 }
 
-
-
 /* ================================================================
-   СТОРІНКИ: Про нас, Контакти, 404
-   Вставити в КІНЕЦЬ styles.css (після попереднього додатку)
+   СТОРІНКИ: ПРО НАС, КОНТАКТИ, 404
    ================================================================ */
 
 .about { padding: var(--space-2xl) 0; }
@@ -1508,8 +1439,7 @@ font-family: 'Montserrat', sans-serif;
 }
 
 /* ================================================================
-   ГОЛОВНА: кнопка каталогу та точки слайдера
-   Вставити в КІНЕЦЬ styles.css
+   ГОЛОВНА: КНОПКА КАТАЛОГУ ТА ТОЧКИ СЛАЙДЕРА
    ================================================================ */
 
 .section-cta {
@@ -1525,10 +1455,8 @@ button.testimonial__dot {
 
 .testimonial__text { min-height: 120px; }
 
-
 /* ================================================================
-   СТОРІНКА «ПОСЛУГИ»: кроки, акордеон, блок із закликом
-   Вставити в КІНЕЦЬ styles.css
+   СТОРІНКА «ПОСЛУГИ»: КРОКИ, АКОРДЕОН, ЗАКЛИК ДО ДІЇ
    ================================================================ */
 
 .process { padding: var(--space-2xl) 0; }
