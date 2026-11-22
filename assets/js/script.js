@@ -12,9 +12,8 @@
   async function api(path, options = {}) {
     const res = await fetch(`${cfg.SUPABASE_URL}/rest/v1/${path}`, {
       ...options,
-        headers: {
+      headers: {
         apikey: cfg.SUPABASE_KEY,
-        Authorization: `Bearer ${cfg.SUPABASE_KEY}`,
         'Content-Type': 'application/json',
         ...options.headers
       }
@@ -88,7 +87,7 @@
       !v || /^\+?[0-9\s()-]{7,20}$/.test(v)
         ? ''
         : 'Телефон: цифри, пробіли, +, дужки або дефіс (7–20 символів)',
-    message: (v) => (v.length > 500 ? 'Максимум 500 символів' : '')
+    message: (v) => (v.length > 1000 ? 'Максимум 1000 символів' : '')
   };
 
   function validateField(input) {
@@ -117,7 +116,7 @@
   }
 
   /* ── Форми заявки (модалка і сторінка «Контакти») ── */
-  document.querySelectorAll('form[data-request-form]').forEach((form) => {
+  const bindRequestForm = (form) => {
     form.querySelectorAll('input[name], textarea[name]').forEach((input) => {
       input.addEventListener('blur', () => validateField(input));
       input.addEventListener('input', () => {
@@ -152,13 +151,16 @@
         form.reset();
         setStatus(form, 'Дякуємо! Заявку отримано, ми зв’яжемося з вами.', 'ok');
         if (form.closest('#order-modal')) setTimeout(() => window.Shop.closeModal(), 2000);
+        form.dispatchEvent(new CustomEvent('request:sent', { bubbles: true }));
       } catch (err) {
         setStatus(form, 'Не вдалося надіслати заявку. Спробуйте ще раз пізніше.', 'error');
       } finally {
         button.disabled = false;
       }
     });
-  });
+  };
+
+  document.querySelectorAll('form[data-request-form]').forEach(bindRequestForm);
 
   /* ── Модальне вікно замовлення ── */
   const modal = document.getElementById('order-modal');
@@ -211,5 +213,5 @@
     });
   });
 
-  window.Shop = { api, openOrderModal, closeModal };
+  window.Shop = { api, openOrderModal, closeModal, bindRequestForm };
 })();

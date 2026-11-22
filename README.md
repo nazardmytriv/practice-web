@@ -30,6 +30,7 @@
 - Модальне вікно із формою замовлення: закриття кнопкою, кліком поза вікном та клавішею Escape
 - Валідація форм на клієнті (ім’я, email, телефон, довжина повідомлення)
 - Запис заявок у таблицю `requests` (операція додавання даних)
+- Кошик: додавання товарів, зміна кількості, підсумок, збереження в `localStorage`, оформлення замовлення (заявка зі складом кошика записується в `requests`), анімація лічильника в шапці
 - Слайдер відгуків (дані з масиву об’єктів) та акордеон
 - SVG-спрайт для іконок, зображення у форматі WebP
 
@@ -53,7 +54,7 @@ Supabase (PostgreSQL + REST API), GitHub Pages.
 index.html, products.html, about.html, services.html, contact.html, 404.html
 assets/
   css/    variables.css, styles.css
-  js/     config.js, script.js (спільна логіка), home.js, products.js, services.js
+  js/     config.js, script.js (спільна логіка), cart.js, home.js, products.js, services.js
   images/ *.webp, favicon.svg, icons/sprite.svg
 ```
 

@@ -40,10 +40,10 @@
           <svg aria-hidden="true" focusable="false"><use href="assets/images/icons/sprite.svg#icon-magnifier"></use></svg>
         </a>
       </div>
-      <div class="header__cart-wrapper">
-        <svg class="header__cart-icon" role="img" aria-label="Кошик"><use href="assets/images/icons/sprite.svg#icon-cart"></use></svg>
-        <svg class="header__user-icon" role="img" aria-label="Профіль"><use href="assets/images/icons/sprite.svg#icon-user"></use></svg>
-      </div>
+      <button type="button" class="header__cart-wrapper" data-cart-open aria-label="Кошик, товарів: 0">
+        <svg class="header__cart-icon" aria-hidden="true"><use href="assets/images/icons/sprite.svg#icon-cart"></use></svg>
+        <span class="header__cart-count" data-cart-count>0</span>
+      </button>
     </div>
 
     <button class="burger" type="button" id="burger-btn" aria-controls="main-nav" aria-expanded="false" aria-label="Відкрити меню">
@@ -57,10 +57,10 @@
     <label for="header-search-mobile" class="visually-hidden">Пошук по сайту</label>
     <input type="text" id="header-search-mobile" class="header__mobile-search-input" placeholder="Пошук.." />
     <svg class="header__mobile-search-icon" role="img" aria-label="Шукати"><use href="assets/images/icons/sprite.svg#icon-magnifier"></use></svg>
-    <div class="header__cart-wrapper">
-      <svg class="header__cart-icon" role="img" aria-label="Кошик"><use href="assets/images/icons/sprite.svg#icon-cart"></use></svg>
-      <svg class="header__user-icon" role="img" aria-label="Профіль"><use href="assets/images/icons/sprite.svg#icon-user"></use></svg>
-    </div>
+    <button type="button" class="header__cart-wrapper" data-cart-open aria-label="Кошик, товарів: 0">
+        <svg class="header__cart-icon" aria-hidden="true"><use href="assets/images/icons/sprite.svg#icon-cart"></use></svg>
+        <span class="header__cart-count" data-cart-count>0</span>
+      </button>
   </div>
 </header>
 
@@ -138,5 +138,6 @@
 
 <script src="assets/js/config.js" defer></script>
 <script src="assets/js/script.js" defer></script>
+<script src="assets/js/cart.js" defer></script>
 </body>
 </html>

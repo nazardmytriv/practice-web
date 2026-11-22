@@ -79,15 +79,32 @@
       wrap.append(createIcon('sale', 'product-card__badge', 'Акція'));
     }
 
-    const button = el('button', 'btn-outline product-card__btn', 'Замовити');
-    button.type = 'button';
-    button.addEventListener('click', () => window.Shop.openOrderModal(product));
+    const addButton = el('button', 'btn-solid product-card__btn', 'У кошик');
+    addButton.type = 'button';
+    let resetTimer;
+    addButton.addEventListener('click', () => {
+      window.Shop.cart.add(product);
+      addButton.textContent = 'Додано ✓';
+      addButton.classList.add('is-added');
+      clearTimeout(resetTimer);
+      resetTimer = setTimeout(() => {
+        addButton.textContent = 'У кошик';
+        addButton.classList.remove('is-added');
+      }, 1200);
+    });
+
+    const quickButton = el('button', 'btn-outline product-card__btn', 'Швидке замовлення');
+    quickButton.type = 'button';
+    quickButton.addEventListener('click', () => window.Shop.openOrderModal(product));
+
+    const actions = el('div', 'product-card__actions');
+    actions.append(addButton, quickButton);
 
     card.append(
       wrap,
       el('h3', 'product-card__title', product.name),
       el('p', 'product-card__price', formatPrice(product.price)),
-      button
+      actions
     );
     return card;
   }
