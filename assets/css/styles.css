@@ -34,6 +34,7 @@ body {
 }
 
 ul  { list-style: none; }
+
 a   { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; height: auto; }
 svg { display: block; flex-shrink: 0; }
@@ -800,7 +801,7 @@ font-family: 'Montserrat', sans-serif;
    МЕДІА-ЗАПИТИ (Mobile First — зростаючі брейкпоінти)
    ================================================================ */
 
-   /* ────────────────────────────────────────────────
+/* ────────────────────────────────────────────────
    a) Mobile devices: 320px — 480px
    ──────────────────────────────────────────────── */
 @media screen and (max-width: 480px) {
@@ -879,6 +880,7 @@ font-family: 'Montserrat', sans-serif;
 
   /* Stats — 4 колонки */
   .stats__inner { grid-template-columns: repeat(4, 1fr); }
+  .stats-item { padding: var(--space-xl) var(--space-sm); }
 
   /* Footer top — бренд + 3 колонки посилань */
   .footer__top {
@@ -946,6 +948,7 @@ font-family: 'Montserrat', sans-serif;
 
   /* Stats */
   .stats { padding: var(--space-3xl) 0; }
+  .stats-item { padding: var(--space-2xl) var(--space-xl); }
   .stats-item__number { font-size: var(--font-size-hero); }
 }
 

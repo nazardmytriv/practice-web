@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SHOP. — інтернет-магазин дизайнерських меблів та декору</title>
   <meta name="description" content="SHOP. — інтернет-магазин дизайнерських меблів та предметів інтер’єру: авторські крісла, столи, шафи й декор із доставкою." />
+  <link rel="icon" href="assets/images/favicon.png" type="image/png" sizes="48x48" />
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Playfair+Display:wght@400;700&family=Raleway:wght@400;500;700;900&family=Open+Sans:wght@400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Playfair+Display:wght@400;500;700&family=Raleway:wght@400;500;700;900&family=Open+Sans:wght@400;600&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="assets/css/variables.css" />
@@ -33,9 +34,10 @@
 
     <div class="header__actions">
       <div class="header__search">
-        <input type="text" class="header__search-input" placeholder="Пошук.." aria-label="Пошук" />
+        <label for="header-search" class="visually-hidden">Пошук по сайту</label>
+        <input type="text" id="header-search" class="header__search-input" placeholder="Пошук.." />
         <a href="products.html" class="header__action header__action--search" aria-label="Шукати">
-          <svg aria-hidden="true" ><use href="assets/images/icons/sprite.svg#icon-magnifier"></use></svg>
+          <svg aria-hidden="true" focusable="false"><use href="assets/images/icons/sprite.svg#icon-magnifier"></use></svg>
         </a>
       </div>
       <div class="header__cart-wrapper">
@@ -52,7 +54,8 @@
   </div>
 
   <div class="header__mobile-search">
-    <input type="text" class="header__mobile-search-input" placeholder="Пошук.." aria-label="Пошук" />
+    <label for="header-search-mobile" class="visually-hidden">Пошук по сайту</label>
+    <input type="text" id="header-search-mobile" class="header__mobile-search-input" placeholder="Пошук.." />
     <svg class="header__mobile-search-icon" role="img" aria-label="Шукати"><use href="assets/images/icons/sprite.svg#icon-magnifier"></use></svg>
     <div class="header__cart-wrapper">
       <svg class="header__cart-icon" role="img" aria-label="Кошик"><use href="assets/images/icons/sprite.svg#icon-cart"></use></svg>
@@ -64,11 +67,13 @@
 
 <main id="main-content">
 
+  <h1 class="visually-hidden">SHOP. — дизайнерські меблі та предмети інтер’єру</h1>
+
   <section class="hero" aria-label="Головний банер">
     <div class="hero__inner container">
       <div class="hero__content">
         <p class="hero__price">$800</p>
-        <h1 class="hero__title">ALATO CABINET</h1>
+        <h2 class="hero__title">ALATO CABINET</h2>
         <p class="hero__subtitle">
           Комод із фасадом у вигляді лусок і градієнтним покриттям. Авторська річ,
           яка стане головним акцентом вашого інтер’єру.
@@ -83,19 +88,19 @@
       <h2 class="visually-hidden" id="features-title">Наші переваги</h2>
       <div class="features__grid">
         <article class="feature-item">
-          <svg class="feature-item__icon" aria-hidden="true" ><use href="assets/images/icons/sprite.svg#icon-credit-card"></use></svg>
+          <svg class="feature-item__icon" aria-hidden="true" focusable="false"><use href="assets/images/icons/sprite.svg#icon-credit-card"></use></svg>
           <h3 class="feature-item__title">Оплата карткою</h3>
           <p class="feature-item__text">Оплачуйте замовлення карткою онлайн або під час отримання. Платежі захищені, а повернення коштів відбувається без зайвих формальностей.</p>
           <a href="services.html" class="feature-item__link">Докладніше</a>
         </article>
         <article class="feature-item">
-          <svg class="feature-item__icon" aria-hidden="true" ><use href="assets/images/icons/sprite.svg#icon-wallet"></use></svg>
+          <svg class="feature-item__icon" aria-hidden="true" focusable="false"><use href="assets/images/icons/sprite.svg#icon-wallet"></use></svg>
           <h3 class="feature-item__title">Вигідні ціни</h3>
           <p class="feature-item__text">Стежте за акціями та сезонними колекціями: частину моделей ми пропонуємо за зниженою ціною.</p>
           <a href="services.html" class="feature-item__link">Докладніше</a>
         </article>
         <article class="feature-item">
-          <svg class="feature-item__icon" aria-hidden="true" ><use href="assets/images/icons/sprite.svg#icon-telegram"></use></svg>
+          <svg class="feature-item__icon" aria-hidden="true" focusable="false"><use href="assets/images/icons/sprite.svg#icon-telegram"></use></svg>
           <h3 class="feature-item__title">Безкоштовна доставка</h3>
           <p class="feature-item__text">Привеземо замовлення в узгоджений час і піднімемо на поверх. Для великих покупок доставка безкоштовна.</p>
           <a href="services.html" class="feature-item__link">Докладніше</a>
@@ -145,22 +150,22 @@
   <section class="stats" aria-label="Наші досягнення">
     <div class="stats__inner container">
       <div class="stats-item">
-        <svg class="stats-item__icon" aria-hidden="true" ><use href="assets/images/icons/sprite.svg#icon-eye"></use></svg>
+        <svg class="stats-item__icon" aria-hidden="true" focusable="false"><use href="assets/images/icons/sprite.svg#icon-eye"></use></svg>
         <span class="stats-item__number">5297</span>
         <span class="stats-item__label">Ідей та натхнення</span>
       </div>
       <div class="stats-item">
-        <svg class="stats-item__icon" aria-hidden="true" ><use href="assets/images/icons/sprite.svg#icon-yellow-cart"></use></svg>
+        <svg class="stats-item__icon" aria-hidden="true" focusable="false"><use href="assets/images/icons/sprite.svg#icon-yellow-cart"></use></svg>
         <span class="stats-item__number">108</span>
         <span class="stats-item__label">Задоволених клієнтів</span>
       </div>
       <div class="stats-item">
-        <svg class="stats-item__icon" aria-hidden="true" ><use href="assets/images/icons/sprite.svg#icon-window-market"></use></svg>
+        <svg class="stats-item__icon" aria-hidden="true" focusable="false"><use href="assets/images/icons/sprite.svg#icon-window-market"></use></svg>
         <span class="stats-item__number">168</span>
         <span class="stats-item__label">Товарів у каталозі</span>
       </div>
       <div class="stats-item">
-        <svg class="stats-item__icon" aria-hidden="true" ><use href="assets/images/icons/sprite.svg#icon-oclock"></use></svg>
+        <svg class="stats-item__icon" aria-hidden="true" focusable="false"><use href="assets/images/icons/sprite.svg#icon-oclock"></use></svg>
         <span class="stats-item__number">1345</span>
         <span class="stats-item__label">Годин роботи</span>
       </div>
@@ -226,10 +231,10 @@
     <div class="footer__bottom">
       <p class="footer__copy">&copy; 2026 SHOP. Усі права захищено.</p>
       <div class="footer__social">
-        <a href="https://x.com" class="footer__social-link" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" ><use href="assets/images/icons/sprite.svg#icon-twitter"></use></svg></a>
-        <a href="https://www.facebook.com" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" ><use href="assets/images/icons/sprite.svg#icon-facebook"></use></svg></a>
-        <a href="https://www.linkedin.com" class="footer__social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" ><use href="assets/images/icons/sprite.svg#icon-linkedin"></use></svg></a>
-        <a href="https://dribbble.com" class="footer__social-link" aria-label="Dribbble" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" ><use href="assets/images/icons/sprite.svg#icon-dribbble"></use></svg></a>
+        <a href="https://x.com" class="footer__social-link" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" focusable="false"><use href="assets/images/icons/sprite.svg#icon-twitter"></use></svg></a>
+        <a href="https://www.facebook.com" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" focusable="false"><use href="assets/images/icons/sprite.svg#icon-facebook"></use></svg></a>
+        <a href="https://www.linkedin.com" class="footer__social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" focusable="false"><use href="assets/images/icons/sprite.svg#icon-linkedin"></use></svg></a>
+        <a href="https://dribbble.com" class="footer__social-link" aria-label="Dribbble" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" focusable="false"><use href="assets/images/icons/sprite.svg#icon-dribbble"></use></svg></a>
       </div>
     </div>
   </div>
